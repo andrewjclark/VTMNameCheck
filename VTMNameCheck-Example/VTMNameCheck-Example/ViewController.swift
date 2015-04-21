@@ -15,11 +15,14 @@ class ViewController: UIViewController {
         
         // Example Usage
         
-        let nameChecker = VTMNameCheck()
+        let nameChecker = VTMNameCheck.sharedInstance
+        NSLog("Loading shallow index");
+        nameChecker.loadShallowGenderLists()
+        NSLog("Loading deep index");
+        nameChecker.loadDeepNamesList()
+        NSLog("Finished loading nameChecker");
         
-        println(nameChecker)
-        
-        let nameExamples = ["steve jobs", "alan turing", "some random computer", "chris", "123345", "apple inc", " frances allen", "ada lovelace", "zedrick"]
+        let nameExamples = ["steve jobs", "alan turing", "some random computer", "chris", "123345", "apple inc", "frances allen", "ada lovelace"]
         
         var malePeople = Set<String>()
         var femalePeople = Set<String>()
@@ -43,7 +46,6 @@ class ViewController: UIViewController {
             } else {
                 nonPeople.insert(name)
             }
-            
         }
         
         println("\n\nMales:\n\(malePeople)\n")

@@ -31,20 +31,52 @@ public enum Gender:Printable {
     }
 }
 
+public enum NameIndexType {
+    case Deep
+    case Shallow
+}
+
 public class VTMNameCheck:Printable {
     
-    var allNames = Set<String>()
-    var knownMaleNames = Set<String>()
-    var knownFemaleNames = Set<String>()
+    class var sharedInstance: VTMNameCheck {
+        struct Static {
+            static var onceToken: dispatch_once_t = 0
+            static var instance: VTMNameCheck? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = VTMNameCheck()
+        }
+        return Static.instance!
+    }
     
-    init() {
+    var allNames:[String] = []
+    var knownMaleNames:[String] = []
+    var knownFemaleNames:[String] = []
+    
+    public func loadShallowGenderLists() {
+        if let filePath = NSBundle.mainBundle().pathForResource("names-male", ofType:"plist") {
+            
+            let loadedMaleNames = NSArray(contentsOfFile: filePath)
+            if let array = loadedMaleNames as? Array<String> {
+                knownMaleNames = array
+            }
+        }
         
-        // Load the names.txt, names-male.txt and names-female.txt into Set's
-        
-        allNames = self.nameSetFromFile("names")
-        knownMaleNames = self.nameSetFromFile("names-male")
-        knownFemaleNames = self.nameSetFromFile("names-female")
-        
+        if let filePath = NSBundle.mainBundle().pathForResource("names-female", ofType:"plist") {
+            let loadedFemaleNames = NSArray(contentsOfFile: filePath)
+            if let array = loadedFemaleNames as? Array<String> {
+                knownFemaleNames = array
+            }
+        }
+    }
+    
+    public func loadDeepNamesList() {
+        if let filePath = NSBundle.mainBundle().pathForResource("names", ofType:"plist") {
+            let loadedNames = NSArray(contentsOfFile: filePath)
+            if let array = loadedNames as? Array<String> {
+                allNames = array
+            }
+        }
     }
     
     func nameCount() -> (all: Int, male: Int, female: Int) {
@@ -57,7 +89,6 @@ public class VTMNameCheck:Printable {
             let nameCount = self.nameCount()
             
             return "All Names: \(allNames.count)  Male Names: \(knownMaleNames.count)  Female Names: \(knownFemaleNames.count)"
-            
         }
     }
     
@@ -98,27 +129,29 @@ public class VTMNameCheck:Printable {
         var gender = Gender.Unknown
         
         if wordsCount > 0 {
-            // Check gender of first name
-            if let firstName = words.first {
-                // Set isMale and isFemale bools.
-                let isMale = knownMaleNames.contains(firstName)
-                let isFemale = knownFemaleNames.contains(firstName)
-                
-                // Set gender based on presence of names in knownMale and knownFemale name sets.
-                if isMale && isFemale {
-                    gender = .Either
-                } else if isMale && isFemale == false {
-                    gender = .Male
-                } else if isFemale && isMale == false {
-                    gender = .Female
-                }
-            }
             
             // Check words against master names set
+            var loopCount = 0
             for word in words {
+                
+                let isName = contains(allNames, word)
+                let isMale = contains(knownMaleNames, word)
+                let isFemale = contains(knownFemaleNames, word)
+                
+                if count(word) > 0 && loopCount == 0 {
+                    if isMale && isFemale {
+                        gender = .Either
+                    } else if isMale && isFemale == false {
+                        gender = .Male
+                    } else if isFemale && isMale == false {
+                        gender = .Female
+                    }
+                    loopCount += 1
+                }
+                
                 if count(word) > 1 {
                     // Word is longer than 1 character
-                    if allNames.contains(word) {
+                    if isName || isMale || isFemale {
                         // Word is a name
                         nameHits += 1
                     }

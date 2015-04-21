@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51365A301AE66A0F003F48F7 /* names-female.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51365A2D1AE66A0F003F48F7 /* names-female.plist */; };
+		51365A311AE66A0F003F48F7 /* names-male.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51365A2E1AE66A0F003F48F7 /* names-male.plist */; };
+		51365A321AE66A0F003F48F7 /* names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51365A2F1AE66A0F003F48F7 /* names.plist */; };
 		5188EEA31AE22ED3002BFF45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5188EEA21AE22ED3002BFF45 /* AppDelegate.swift */; };
 		5188EEA51AE22ED3002BFF45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5188EEA41AE22ED3002BFF45 /* ViewController.swift */; };
 		5188EEA81AE22ED3002BFF45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5188EEA61AE22ED3002BFF45 /* Main.storyboard */; };
@@ -14,9 +17,6 @@
 		5188EEAD1AE22ED3002BFF45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5188EEAB1AE22ED3002BFF45 /* LaunchScreen.xib */; };
 		5188EEB91AE22ED3002BFF45 /* VTMNameCheck_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5188EEB81AE22ED3002BFF45 /* VTMNameCheck_ExampleTests.swift */; };
 		5188EEC41AE22F23002BFF45 /* VTMNameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5188EEC21AE22F23002BFF45 /* VTMNameCheck.swift */; };
-		5188EEC81AE231B1002BFF45 /* names-female.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5188EEC61AE231B1002BFF45 /* names-female.txt */; };
-		5188EEC91AE231B1002BFF45 /* names-male.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5188EEC71AE231B1002BFF45 /* names-male.txt */; };
-		5188EECD1AE242D6002BFF45 /* names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5188EECC1AE242D6002BFF45 /* names.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51365A2D1AE66A0F003F48F7 /* names-female.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "names-female.plist"; sourceTree = "<group>"; };
+		51365A2E1AE66A0F003F48F7 /* names-male.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "names-male.plist"; sourceTree = "<group>"; };
+		51365A2F1AE66A0F003F48F7 /* names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = names.plist; sourceTree = "<group>"; };
 		5188EE9D1AE22ED3002BFF45 /* VTMNameCheck-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VTMNameCheck-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5188EEA11AE22ED3002BFF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5188EEA21AE22ED3002BFF45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +44,6 @@
 		5188EEB71AE22ED3002BFF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5188EEB81AE22ED3002BFF45 /* VTMNameCheck_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTMNameCheck_ExampleTests.swift; sourceTree = "<group>"; };
 		5188EEC21AE22F23002BFF45 /* VTMNameCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VTMNameCheck.swift; sourceTree = "<group>"; };
-		5188EEC61AE231B1002BFF45 /* names-female.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-female.txt"; sourceTree = "<group>"; };
-		5188EEC71AE231B1002BFF45 /* names-male.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-male.txt"; sourceTree = "<group>"; };
-		5188EECC1AE242D6002BFF45 /* names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = names.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				5188EEC21AE22F23002BFF45 /* VTMNameCheck.swift */,
-				5188EECC1AE242D6002BFF45 /* names.txt */,
-				5188EEC61AE231B1002BFF45 /* names-female.txt */,
-				5188EEC71AE231B1002BFF45 /* names-male.txt */,
+				51365A2D1AE66A0F003F48F7 /* names-female.plist */,
+				51365A2E1AE66A0F003F48F7 /* names-male.plist */,
+				51365A2F1AE66A0F003F48F7 /* names.plist */,
 				51B3A2ED1AE26BDF0098C3A6 /* Example App */,
 				5188EEA01AE22ED3002BFF45 /* Supporting Files */,
 			);
@@ -214,10 +214,10 @@
 			files = (
 				5188EEA81AE22ED3002BFF45 /* Main.storyboard in Resources */,
 				5188EEAD1AE22ED3002BFF45 /* LaunchScreen.xib in Resources */,
-				5188EECD1AE242D6002BFF45 /* names.txt in Resources */,
-				5188EEC91AE231B1002BFF45 /* names-male.txt in Resources */,
+				51365A311AE66A0F003F48F7 /* names-male.plist in Resources */,
+				51365A301AE66A0F003F48F7 /* names-female.plist in Resources */,
 				5188EEAA1AE22ED3002BFF45 /* Images.xcassets in Resources */,
-				5188EEC81AE231B1002BFF45 /* names-female.txt in Resources */,
+				51365A321AE66A0F003F48F7 /* names.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
