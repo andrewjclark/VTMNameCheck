@@ -9,7 +9,9 @@ Requires Xcode 6.3 and Swift 1.2
 Add VTMNameChecker.swift, names.txt, names-male.txt and names-female.txt to your application. Instantiate the class in the usual way and then call the isPerson method...
 
 ```
-let nameChecker = VTMNameCheck()
+let nameChecker = VTMNameCheck.sharedInstance
+nameChecker.loadShallowGenderLists()
+
 let firstNameResult = nameChecker.isPerson("Andrew J Clark")
 println("Andrew J Clark result: \(firstNameResult)")
 ```
